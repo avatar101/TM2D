@@ -11,7 +11,7 @@
 
 echo "Starting programm PVblock_v0.8 `date +%d:%T.%3N` PID:$$"
 
-
+# dlist?
 dlist=( f.e122.F_1850-PDAY_CAM5.f09_g16.climatology.oFaIsF-io192.000
 f.e122.F_1850-PDAY_CAM5.f09_g16.climatology.oFaIsF-io192.001
 f.e122.F_1850-PDAY_CAM5.f09_g16.climatology.oFaIsF-io192.002 )
@@ -24,7 +24,7 @@ declare eyear=2016 # Last year of dataset (2016 for experiments, 2005 for climat
 declare preprocess=true
 declare runmean=true
 declare anom=true
-declare precomputedanom=true    # If false, the anomaly is calculated for thsi dataset
+declare precomputedanom=true    # If false, the anomaly is calculated for this dataset
 declare anomtype="oFaIsF"       # If precomputedanom is taken, indicate here which one
 declare anomsyea=1982 # Start year of ANOMALY (do not mix of syear!)
 declare anomeyea=2005 # End year of ANOMALY 
@@ -60,7 +60,7 @@ for dset in ${dlist[@]} ; do
       if [ ! -d ${rootdir}/workdir/${dset}/ownanom ] ; then mkdir ${rootdir}/workdir/${dset}/ownanom{,/PV,/indat,/blocks} ; fi
    fi # if takeeraintanom
 
-### Get data - extract PV field form model output and make yearly files
+### Get data - extract PV field from model output and make yearly files
    if ( ${preprocess} ) then
       echo "Preprocessing of ${dset}: `date +%d:%T.%3N`"
       for year in `seq ${syear} 1 ${eyear}` ; do
